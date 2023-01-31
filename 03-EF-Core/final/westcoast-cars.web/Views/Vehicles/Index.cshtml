@@ -2,11 +2,12 @@
 
 <section>
     <h1>Aktuella bilar för försäljning</h1>
-    @* <h2>Veckans fynd: @Model.Make - @Model.Model - @Model.ModelYear</h2> *@
+
+    <a asp-action="Create">Lägg till ny bil</a>
 
     @foreach (var vehicle in Model)
     {
-        <div>           
+        <div>
             <a asp-action="details" asp-controller="vehicles" asp-route-id="@vehicle.Id">
                 @vehicle.Make - @vehicle.Model - @vehicle.ModelYear
             </a>

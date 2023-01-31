@@ -1,0 +1,38 @@
+@model westcoast_cars.web.Models.VehicleModel
+
+<section class="page">
+    <h1 class="page-title">Lägg till bil</h1>
+    <form asp-action="Create">
+        <div class="form-control">
+            <label asp-for="RegistrationNumber"></label>
+            <input asp-for="RegistrationNumber" type="text">
+            <span class="error" asp-validation-for="RegistrationNumber"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="Make"></label>
+            <input asp-for="Make" type="text">
+            <span class="error" asp-validation-for="Make"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="Model"></label>
+            <input asp-for="Model" type="text">
+            <span class="error" asp-validation-for="Model"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="ModelYear"></label>
+            <input asp-for="ModelYear" type="text">
+            <span class="error" asp-validation-for="ModelYear"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="Mileage"></label>
+            <input asp-for="Mileage" type="text">
+            <span class="error" asp-validation-for="Mileage"></span>
+        </div>
+        <div class="form-control">
+            <div class="buttons-container">
+                <button class="btn btn-primary">Spara</button>
+                <a asp-action="Index" class="btn btn-warning">Avbryt</a>
+            </div>
+        </div>
+    </form>
+</section>

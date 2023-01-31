@@ -13,6 +13,22 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+// Ladda in data i databasen...
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+
+try
+{
+    var context = services.GetRequiredService<WestcoastCarsContext>();
+    await context.Database.MigrateAsync();
+    await SeedData.LoadData(context);
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+    throw;
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

@@ -1,19 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using westcoast_cars.web.Data;
 using westcoast_cars.web.Models;
 
 [Route("Vehicles")]
 public class VehiclesController : Controller
 {
+    private readonly WestcoastCarsContext _context;
+    public VehiclesController(WestcoastCarsContext context)
+    {
+        _context = context;
+    }
 
     // Denna metod svarar på HttpGet anrop
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        var vehicles = new List<VehicleModel>{
-            new VehicleModel{Id = 1,Make = "Volvo", Model = "V60", ModelYear = "2019", Mileage = 25000},
-            new VehicleModel{Id = 2,Make = "Ford", Model = "Kuga", ModelYear = "2015", Mileage = 89750},
-            new VehicleModel{Id = 3,Make = "Kia", Model = "xCeed", ModelYear = "2022", Mileage = 8500}
-        };
-
+        var vehicles = await _context.Vehicles.ToListAsync();
 
         return View("Index", vehicles);
     }
@@ -21,12 +23,29 @@ public class VehiclesController : Controller
     // Denna metod svarar på HttpGet anrop
     // Http://localhost:5169/vehicles/details/6
     [HttpGet("details/{id}")]
-    public IActionResult Details(int Id)
+    public async Task<IActionResult> Details(int Id)
     {
-        // Vi kommer att hämta en bil med hjälp av inskickat id
-        // och vi kommer att hämta detta ifrån en databas...
-        var vehicle = new VehicleModel { Id = 3, Make = "Kia", Model = "xCeed", ModelYear = "2022", Mileage = 8500 };
-
+        var vehicle = await _context.Vehicles.FindAsync(Id);
         return View("Details", vehicle);
+    }
+
+    // Denna metod kommer att skapa ett nytt tomt vehicle objekt
+    // och skicka detta till en vy som skapar ett formulär.
+    [HttpGet("create")]
+    public IActionResult Create()
+    {
+        var vehicle = new VehicleModel();
+        return View("Create", vehicle);
+    }
+
+    [HttpPost("Create")]
+    public async Task<IActionResult> Create(VehicleModel vehicle)
+    {
+        if (!ModelState.IsValid) return View("Create", vehicle);
+
+        await _context.Vehicles.AddAsync(vehicle);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
     }
 }
