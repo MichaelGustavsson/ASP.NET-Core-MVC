@@ -1,0 +1,20 @@
+:root {
+  --primary-background-color: #ee9504;
+  --background-color: #f4f4f4;
+  --primary-color: #152d6d;
+  --primary-text-color: #f4f4f4;
+  --secondary-text-color: #9c9b9b;
+  --light-text-color: #f4f4f4;
+  --primary-border-color: #9c9b9b;
+  --dark-color: #212121;
+  --light-color: #f4f4f4;
+  --navbar-primary-color: #152d6d;
+  --navbar-secondary-color: #5f9ea0;
+  --navbar-color: #f4f4f4;
+  --table-background-color: #f4f4f4;
+  --title-color: #24539a;
+  --edit-icon-color: #24539a;
+  --delete-icon-color: #750404;
+  --error-text: #750404;
+  --warning-color: #ee9504;
+}
