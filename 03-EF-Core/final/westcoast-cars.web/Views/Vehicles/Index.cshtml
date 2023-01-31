@@ -1,0 +1,20 @@
+@model IList<westcoast_cars.web.Models.VehicleModel>
+
+<section>
+    <h1>Aktuella bilar för försäljning</h1>
+    @* <h2>Veckans fynd: @Model.Make - @Model.Model - @Model.ModelYear</h2> *@
+
+    @foreach (var vehicle in Model)
+    {
+        <div>
+            @* @Html.ActionLink(vehicle.Model,"details","vehicles",new {id=@vehicle.Id}) *@
+
+            @* <a href="http://localhost:5169/vehicles/details/@vehicle.Id">@vehicle.Make - @vehicle.Model -
+                @vehicle.ModelYear</a> *@
+
+            <a asp-action="details" asp-controller="vehicles" asp-route-id="@vehicle.Id">
+                @vehicle.Make - @vehicle.Model - @vehicle.ModelYear
+            </a>
+        </div>
+    }
+</section>
