@@ -6,12 +6,7 @@
 
     @foreach (var vehicle in Model)
     {
-        <div>
-            @* @Html.ActionLink(vehicle.Model,"details","vehicles",new {id=@vehicle.Id}) *@
-
-            @* <a href="http://localhost:5169/vehicles/details/@vehicle.Id">@vehicle.Make - @vehicle.Model -
-                @vehicle.ModelYear</a> *@
-
+        <div>           
             <a asp-action="details" asp-controller="vehicles" asp-route-id="@vehicle.Id">
                 @vehicle.Make - @vehicle.Model - @vehicle.ModelYear
             </a>

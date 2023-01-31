@@ -13,5 +13,15 @@ body {
   color: #f4f4f4;
 }
 main {
-  margin: 5rem 0 0 2rem;
+  margin: 6rem 0 0 2rem;
+}
+
+h1{
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+a {
+  color: #f4f4f4;
+  text-decoration: none;
 }
