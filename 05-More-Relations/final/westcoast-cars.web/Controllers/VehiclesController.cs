@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -60,9 +59,11 @@ public class VehiclesController : Controller
     {
         var manufacturers = await _context.Manufacturers.ToListAsync();
         var fuelTypes = await _context.FuelTypes.ToListAsync();
+        var transmissionsTypes = await _context.TransmissionsTypes.ToListAsync();
 
         var manufacturersList = new List<SelectListItem>();
         var fuelTypesList = new List<SelectListItem>();
+        var transmissionsList = new List<SelectListItem>();
 
         foreach (var make in manufacturers)
         {
@@ -74,9 +75,15 @@ public class VehiclesController : Controller
             fuelTypesList.Add(new SelectListItem { Value = fueltype.Id.ToString(), Text = fueltype.Name });
         }
 
+        foreach (var transmission in transmissionsTypes)
+        {
+            transmissionsList.Add(new SelectListItem { Value = transmission.Id.ToString(), Text = transmission.Name });
+        }
+
         var vehicle = new VehiclePostViewModel();
         vehicle.Manufacturers = manufacturersList;
         vehicle.FuelTypes = fuelTypesList;
+        vehicle.TransmissionsTypes = transmissionsList;
 
         return View("Create", vehicle);
     }
@@ -86,10 +93,11 @@ public class VehiclesController : Controller
     {
         if (!ModelState.IsValid) return View("Create", vehicle);
 
-        var make = await _context.Manufacturers.SingleOrDefaultAsync(c => c.Id == vehicle.Manufacturer);
+        var selectedMake = await _context.Manufacturers.SingleOrDefaultAsync(c => c.Id == vehicle.Manufacturer);
         var selectedFueltype = await _context.FuelTypes.FindAsync(vehicle.FuelType);
+        var selectedTransmission = await _context.TransmissionsTypes.FindAsync(vehicle.TransmissionsType);
 
-        if (make is not null && selectedFueltype is not null)
+        if (selectedMake is not null && selectedFueltype is not null && selectedTransmission is not null)
         {
             var vehicleToAdd = new VehicleModel
             {
@@ -97,8 +105,9 @@ public class VehiclesController : Controller
                 Model = vehicle.Model,
                 ModelYear = vehicle.ModelYear,
                 Mileage = vehicle.Mileage,
-                Manufacturer = make,
-                FuelType = selectedFueltype
+                Manufacturer = selectedMake,
+                FuelType = selectedFueltype,
+                TransmissionsType = selectedTransmission
             };
 
             await _context.Vehicles.AddAsync(vehicleToAdd);

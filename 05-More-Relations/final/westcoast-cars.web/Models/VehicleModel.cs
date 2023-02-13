@@ -18,5 +18,9 @@ namespace westcoast_cars.web.Models
         public int FuelTypeId { get; set; }
         [ForeignKey("FuelTypeId")]
         public FuelTypeModel FuelType { get; set; }
+
+        public int TransmissionsTypeId { get; set; }
+        [ForeignKey("TransmissionsTypeId")]
+        public TransmissionsTypeModel TransmissionsType { get; set; }
     }
 }

@@ -30,6 +30,11 @@
             <span class="error" asp-validation-for="FuelType"></span>
         </div>
         <div class="form-control">
+            <label asp-for="TransmissionsType"></label>
+            <select asp-for="TransmissionsType" asp-items="Model.TransmissionsTypes"></select>
+            <span class="error" asp-validation-for="FuelType"></span>
+        </div>
+        <div class="form-control">
             <label asp-for="Mileage"></label>
             <input asp-for="Mileage" type="text">
             <span class="error" asp-validation-for="Mileage"></span>

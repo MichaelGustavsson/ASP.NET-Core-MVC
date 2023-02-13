@@ -9,7 +9,7 @@
       "version": "2.0 TDI 140 COMBI",
       "modelYear": "2015",
       "mileage": 162000,
-      "transmission": "Manual",
+      "transmissionsTypeId": 1,
       "fuelTypeId": 1,
       "comment": ""
     },
@@ -23,7 +23,7 @@
       "version": "2.0 TDI BMT 140 DSG6",
       "modelYear": "2015",
       "mileage": 177000,
-      "transmission": "Automatic",
+      "transmissionsTypeId": 1,
       "fuelTypeId": 1,
       "comment": ""
     },
@@ -37,7 +37,7 @@
       "version": "1.6 TDI 105 HATCHBACK",
       "modelYear": "2014",
       "mileage": 109000,
-      "transmission": "Manual",
+      "transmissionsTypeId": 1,
       "fuelTypeId": 1,
       "comment": ""
     },
@@ -51,7 +51,7 @@
       "version": "1.6 BlueHDi 120 HK SW",
       "modelYear": "2015",
       "mileage": 134000,
-      "transmission": "Manual",
+      "transmissionsTypeId": 1,
       "fuelTypeId": 1,
       "comment": ""
     },
@@ -65,7 +65,7 @@
       "version": "1.0 MPI BMT 60 5-DØRS",
       "modelYear": "2015",
       "mileage": 32000,
-      "transmission": "Manual",
+      "transmissionsTypeId": 1,
       "fuelTypeId": 1,
       "comment": ""
     },
@@ -79,7 +79,7 @@
       "version": "1.6 BlueHDi 100 HK",
       "modelYear": "2017",
       "mileage": 106000,
-      "transmission": "Manual",
+      "transmissionsTypeId": 1,
       "fuelTypeId": 1,
       "comment": ""
     },
@@ -93,7 +93,7 @@
       "version": "1.6",
       "modelYear": "2016",
       "mileage": 81000,
-      "transmission": "Manual",
+      "transmissionsTypeId": 1,
       "fuelTypeId": 1,
       "comment": ""
     },
@@ -107,7 +107,7 @@
       "version": "1.6 CDTi 136 HK SPORTS TOURER AUT.",
       "modelYear": "2016",
       "mileage": 206000,
-      "transmission": "Automatic",
+      "transmissionsTypeId": 2,
       "fuelTypeId": 1,
       "comment": ""
     },
@@ -121,7 +121,7 @@
       "version": "1.4 87 HK",
       "modelYear": "2013",
       "mileage": 94000,
-      "transmission": "Manual",
+      "transmissionsTypeId": 1,
       "fuelTypeId": 1,
       "comment": ""
     }

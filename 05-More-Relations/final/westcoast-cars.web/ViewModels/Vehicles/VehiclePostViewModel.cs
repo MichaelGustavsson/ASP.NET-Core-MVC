@@ -13,7 +13,8 @@ namespace westcoast_cars.web.ViewModels.Vehicles
         public List<SelectListItem> Manufacturers { get; set; }
         public int FuelType { get; set; }
         public List<SelectListItem> FuelTypes { get; set; }
-
+        public int TransmissionsType { get; set; }
+        public List<SelectListItem> TransmissionsTypes { get; set; }
         [Required(ErrorMessage = "Modell typ saknas!")]
         [DisplayName("Modell typ")]
         public string Model { get; set; }

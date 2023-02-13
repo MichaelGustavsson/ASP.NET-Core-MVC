@@ -79,6 +79,31 @@ namespace westcoast_cars.web.Data
                 await context.SaveChangesAsync();
             }
         }
+
+        public static async Task LoadTransmissionsData(WestcoastCarsContext context)
+        {
+            // Steg 1.
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            // Steg 2. Vill endast ladda data om vår vehicles tabell är tom...
+            if (context.TransmissionsTypes.Any()) return;
+
+            // Steg 3. Läsa in json informationen ifrån vår vehicles.json fil...
+            var json = System.IO.File.ReadAllText("Data/json/transmissionTypes.json");
+
+            // Steg 4. Omvandla json objekten till en lista av VehicleModel objekt...
+            var transmissions = JsonSerializer.Deserialize<List<TransmissionsTypeModel>>(json, options);
+
+            // Steg 5. Skicka listan med VehicleModel objekt till databasen...
+            if (transmissions is not null && transmissions.Count > 0)
+            {
+                await context.TransmissionsTypes.AddRangeAsync(transmissions);
+                await context.SaveChangesAsync();
+            }
+        }
     }
 }
 

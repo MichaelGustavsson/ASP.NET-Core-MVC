@@ -8,6 +8,7 @@ namespace westcoast_cars.web.Data
         public DbSet<VehicleModel> Vehicles { get; set; }
         public DbSet<ManufacturerModel> Manufacturers { get; set; }
         public DbSet<FuelTypeModel> FuelTypes { get; set; }
+        public DbSet<TransmissionsTypeModel> TransmissionsTypes { get; set; }
         public WestcoastCarsContext(DbContextOptions options) : base(options) { }
     }
 }
