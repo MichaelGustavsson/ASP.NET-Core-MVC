@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Manuell"
+    },
+    {
+        "id": 2,
+        "name": "Automat"
+    },
+    {
+        "id": 3,
+        "name": "Steptronic"
+    }
+]

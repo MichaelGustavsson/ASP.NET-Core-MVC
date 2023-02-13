@@ -1,0 +1,27 @@
+.buttons-container{
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+.btn{
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    margin: 0.3rem 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.btn-primary{
+    color: #f4f4f4;
+    background-color: #152d6d;;
+}
+
+.btn-warning {
+    color: var(--light-color);
+    background: #ee9504;
+    border: #750404 solid 1px;
+  }

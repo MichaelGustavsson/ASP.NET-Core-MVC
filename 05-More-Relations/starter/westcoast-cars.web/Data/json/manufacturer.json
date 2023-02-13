@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "SKODA"
+    },
+    {
+        "id": 2,
+        "name": "VOLKSWAGEN"
+    },
+    {
+        "id": 3,
+        "name": "PEUGEOT"
+    },
+    {
+        "id": 4,
+        "name": "CITROEN"
+    },
+    {
+        "id": 5,
+        "name": "OPEL"
+    },
+    {
+        "id": 6,
+        "name": "BMW"
+    },
+    {
+        "id": 7,
+        "name": "RENAULT"
+    },
+    {
+        "id": 8,
+        "name": "FORD"
+    },
+    {
+        "id": 9,
+        "name": "VOLVO"
+    }
+]
