@@ -25,14 +25,7 @@ namespace westcoast_cars.web.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var manufacturers = await _context.Manufacturers
-                .OrderBy(c => c.Name)
-                .Select(m => new ManufacturerListViewModel
-                {
-                    Id = m.Id,
-                    Name = m.Name
-                })
-                .ToListAsync();
+            var manufacturers = await CreateList();
 
             var model = new ManufacturerPostViewModel
             {
@@ -45,12 +38,17 @@ namespace westcoast_cars.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ManufacturerPostViewModel model)
         {
-            if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid)
+            {
+                model.Manufacturers = await CreateList();
+                return View(model);
+            }
 
             if (await _context.Manufacturers.SingleOrDefaultAsync(c => c.Name.ToUpper() == model.Name.ToUpper()) is not null)
             {
                 ModelState.AddModelError("Name", $"Tillverkare {model.Name} finns redan i systemet.");
-                return View();
+                model.Manufacturers = await CreateList();
+                return View(model);
             }
 
             var make = new ManufacturerModel
@@ -66,6 +64,20 @@ namespace westcoast_cars.web.Controllers
 
             ModelState.AddModelError("Name", "Ett fel inträffade");
             return View();
+        }
+
+        private async Task<IList<ManufacturerListViewModel>> CreateList()
+        {
+            var manufacturers = await _context.Manufacturers
+                .OrderBy(c => c.Name)
+                .Select(m => new ManufacturerListViewModel
+                {
+                    Id = m.Id,
+                    Name = m.Name
+                })
+                .ToListAsync();
+
+            return manufacturers;
         }
     }
 }

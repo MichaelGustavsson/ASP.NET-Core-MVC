@@ -24,14 +24,7 @@ namespace westcoast_cars.web.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var fueltTypes = await _context.FuelTypes
-                .OrderBy(c => c.Name)
-                .Select(m => new FuelTypeListViewModel
-                {
-                    Id = m.Id,
-                    Name = m.Name
-                })
-                .ToListAsync();
+            var fueltTypes = await CreateList();
 
             var model = new FuelTypePostViewModel
             {
@@ -44,12 +37,17 @@ namespace westcoast_cars.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(FuelTypePostViewModel model)
         {
-            if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid)
+            {
+                model.FuelTypes = await CreateList();
+                return View(model);
+            }
 
             if (await _context.FuelTypes.SingleOrDefaultAsync(c => c.Name.ToUpper() == model.Name.ToUpper()) is not null)
             {
                 ModelState.AddModelError("Name", $"Bränsle type {model.Name} finns redan i systemet.");
-                return View();
+                model.FuelTypes = await CreateList();
+                return View(model);
             }
 
             var fueltype = new FuelTypeModel
@@ -67,5 +65,18 @@ namespace westcoast_cars.web.Controllers
             return View();
         }
 
+        private async Task<IList<FuelTypeListViewModel>> CreateList()
+        {
+            var fueltTypes = await _context.FuelTypes
+                .OrderBy(c => c.Name)
+                .Select(m => new FuelTypeListViewModel
+                {
+                    Id = m.Id,
+                    Name = m.Name
+                })
+                .ToListAsync();
+
+            return fueltTypes;
+        }
     }
 }

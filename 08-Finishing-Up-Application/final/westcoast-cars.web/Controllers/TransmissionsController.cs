@@ -24,14 +24,7 @@ namespace westcoast_cars.web.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var transmissions = await _context.TransmissionsTypes
-                .OrderBy(c => c.Name)
-                .Select(m => new TransmissionListViewModel
-                {
-                    Id = m.Id,
-                    Name = m.Name
-                })
-                .ToListAsync();
+            var transmissions = await CreateList();
 
             var model = new TransmissionTypePostViewModel
             {
@@ -44,12 +37,17 @@ namespace westcoast_cars.web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(TransmissionTypePostViewModel model)
         {
-            if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid)
+            {
+                model.Transmissions = await CreateList();
+                return View(model);
+            }
 
             if (await _context.TransmissionsTypes.SingleOrDefaultAsync(c => c.Name.ToUpper() == model.Name.ToUpper()) is not null)
             {
                 ModelState.AddModelError("Name", $"Transmissions typ {model.Name} finns redan i systemet.");
-                return View();
+                model.Transmissions = await CreateList();
+                return View(model);
             }
 
             var transmission = new TransmissionsTypeModel
@@ -67,5 +65,18 @@ namespace westcoast_cars.web.Controllers
             return View();
         }
 
+        private async Task<IList<TransmissionListViewModel>> CreateList()
+        {
+            var transmissions = await _context.TransmissionsTypes
+                .OrderBy(c => c.Name)
+                .Select(m => new TransmissionListViewModel
+                {
+                    Id = m.Id,
+                    Name = m.Name
+                })
+                .ToListAsync();
+
+            return transmissions;
+        }
     }
 }
