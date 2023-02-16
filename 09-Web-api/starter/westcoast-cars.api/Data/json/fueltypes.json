@@ -1,0 +1,130 @@
+[
+    {
+      "Id": 1,
+      "name": "Unknown"
+    },
+    {
+      "Id": 2,
+      "name": "Petrol"
+    },
+    {
+      "Id": 3,
+      "name": "Diesel"
+    },
+    {
+      "Id": 4,
+      "name": "Petrol/Gas"
+    },
+    {
+      "Id": 5,
+      "name": "Gas"
+    },
+    {
+      "Id": 6,
+      "name": "Electric"
+    },
+    {
+      "Id": 7,
+      "name": "Petrol/Electric"
+    },
+    {
+      "Id": 8,
+      "name": "Diesel/Electric"
+    },
+    {
+      "Id": 9,
+      "name": "LNG"
+    },
+    {
+      "Id": 10,
+      "name": "Bio Gas"
+    },
+    {
+      "id": 11,
+      "name": "CNG"
+    },
+    {
+      "id": 12,
+      "name": "Dual Fuel"
+    },
+    {
+      "id": 13,
+      "name": "Hybrid"
+    },
+    {
+      "id": 14,
+      "name": "Fuelcell"
+    },
+    {
+      "id": 15,
+      "name": "Gas"
+    },
+    {
+      "id": 16,
+      "name": "Hydrogen"
+    },
+    {
+      "id": 17,
+      "name": "Hydrogen Fuel Cell"
+    },
+    {
+      "id": 18,
+      "name": "Ethanol"
+    },
+    {
+      "id": 19,
+      "name": "Petrol/LNG"
+    },
+    {
+      "id": 20,
+      "name": "CNG/Petrol"
+    },
+    {
+      "id": 21,
+      "name": "Petrol/Hydrogen"
+    },
+    {
+      "id": 22,
+      "name": "CNG/Diesel"
+    },
+    {
+      "id": 23,
+      "name": "DielseL/LNG"
+    },
+    {
+      "id": 24,
+      "name": "PetrolCNG"
+    },
+    {
+      "id": 25,
+      "name": "Petrol/Ethanol"
+    },
+    {
+      "id": 26,
+      "name": "DieselCNG"
+    },
+    {
+      "id": 27,
+      "name": "DieselLPG"
+    },
+    {
+      "id": 28,
+      "name": "BiFuel"
+    },
+    {
+      "id": 29,
+      "name": "Flex-Fuel"
+    },
+    {
+      "id": 30,
+      "name": "Plug-in Electric Hybrid"
+    },
+    {
+      "id": 34,
+      "name": "Petrol Plugin Hybrid"
+    },
+    {
+      "id": 36,
+      "name": "Diesel Plugin Hybrid"
+    }
+  ]

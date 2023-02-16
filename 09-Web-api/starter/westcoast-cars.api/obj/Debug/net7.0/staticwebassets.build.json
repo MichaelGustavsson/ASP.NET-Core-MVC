@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "LxBOXQ0VSyv1fu7e/ZsSW4Dg59hgQ2+vQ0NbwvTjCa0=",
+  "Source": "westcoast-cars.api",
+  "BasePath": "_content/westcoast-cars.api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
