@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/westcoast-cars.api.props" />
+</Project>
