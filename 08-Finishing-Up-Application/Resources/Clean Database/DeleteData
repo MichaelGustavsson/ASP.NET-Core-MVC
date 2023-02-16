@@ -1,0 +1,5 @@
+-- SQLite
+DELETE FROM Vehicles;
+DELETE FROM FuelTypes;
+DELETE FROM Manufacturers;
+DELETE FROM TransmissionsTypes;
