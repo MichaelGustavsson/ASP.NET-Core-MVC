@@ -34,5 +34,26 @@ namespace westcoast_cars.api.Controllers
             var result = await _context.FuelTypes.Where(c => c.Name.ToUpper().StartsWith(name.ToUpper())).ToListAsync();
             return Ok(result);
         }
+
+        [HttpGet("{name}/vehicles")]
+        public async Task<IActionResult> ListVehicles(string name)
+        {
+            var result = await _context.FuelTypes
+                .Where(c => c.Name.ToUpper().StartsWith(name.ToUpper()))
+                .Select(f => new
+                {
+                    Name = f.Name,
+                    Vehicles = f.Vehicles.Select(v => new
+                    {
+                        RegistrationNumber = v.RegistrationNumber,
+                        Model = v.Model,
+                        ModelYear = v.ModelYear,
+                        Mileage = v.Mileage
+                    }).ToList()
+                })
+                .ToListAsync();
+
+            return Ok(result);
+        }
     }
 }
