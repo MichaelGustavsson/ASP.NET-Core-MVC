@@ -1,0 +1,182 @@
+[
+    {
+      "id": 2,
+      "name": "VOLVO"
+    },
+    {
+      "id": 3,
+      "name": "BMW"
+    },
+    {
+      "id": 4,
+      "name": "RENAULT"
+    },
+    {
+      "id": 6,
+      "name": "AUDI"
+    },
+    {
+      "id": 7,
+      "name": "FIAT"
+    },
+    {
+      "id": 8,
+      "name": "MERCEDES-BENZ"
+    },
+    {
+      "id": 9,
+      "name": "TOYOTA"
+    },
+    {
+      "id": 11,
+      "name": "VOLKSWAGEN"
+    },
+    {
+      "id": 13,
+      "name": "FORD"
+    },
+    {
+      "id": 14,
+      "name": "NISSAN"
+    },
+    {
+      "id": 15,
+      "name": "MAZDA"
+    },
+    {
+      "id": 17,
+      "name": "SKODA"
+    },
+    {
+      "id": 18,
+      "name": "PEUGEOT"
+    },
+    {
+      "id": 19,
+      "name": "SEAT"
+    },
+    {
+      "id": 22,
+      "name": "KIA"
+    },
+    {
+      "id": 24,
+      "name": "ALFA ROMEO"
+    },
+    {
+      "id": 26,
+      "name": "HYUNDAI"
+    },
+    {
+      "id": 27,
+      "name": "OPEL"
+    },
+    {
+      "id": 28,
+      "name": "CITROEN"
+    },
+    {
+      "id": 29,
+      "name": "DACIA"
+    },
+    {
+      "id": 30,
+      "name": "JAGUAR"
+    },
+    {
+      "id": 37,
+      "name": "HONDA"
+    },
+    {
+      "id": 38,
+      "name": "JAGUAR"
+    },
+    {
+      "id": 39,
+      "name": "SUZUKI"
+    },
+    {
+      "id": 40,
+      "name": "JEEP"
+    },
+    {
+      "id": 44,
+      "name": "TESLA"
+    },
+    {
+      "id": 45,
+      "name": "MITSUBISHI"
+    },
+    {
+      "id": 46,
+      "name": "PORSCHE"
+    },
+    {
+      "id": 48,
+      "name": "SUBARU"
+    },
+    {
+      "id": 52,
+      "name": "LEXUS"
+    },
+    {
+      "id": 53,
+      "name": "CHEVROLET"
+    },
+    {
+      "id": 55,
+      "name": "MASERATI"
+    },
+    {
+      "id": 56,
+      "name": "SAAB"
+    },
+    {
+      "id": 58,
+      "name": "DODGE"
+    },
+    {
+      "id": 59,
+      "name": "OKÄND"
+    },
+    {
+      "id": 61,
+      "name": "MG"
+    },
+    {
+      "id": 62,
+      "name": "ISUZU"
+    },
+    {
+      "id": 63,
+      "name": "BENTLEY"
+    },
+    {
+      "id": 64,
+      "name": "POLESTAR"
+    },
+    {
+      "id": 65,
+      "name": "FERRARI"
+    },
+    {
+      "id": 66,
+      "name": "CHRYSLER"
+    },
+    {
+      "id": 69,
+      "name": "SMART"
+    },
+    {
+      "id": 70,
+      "name": "ASTON MARTIN"
+    },
+    {
+      "id": 76,
+      "name": "CADILLAC"
+    },
+    {
+      "id": 77,
+      "name": "LAMBOURGHINI"
+    }
+  ]
