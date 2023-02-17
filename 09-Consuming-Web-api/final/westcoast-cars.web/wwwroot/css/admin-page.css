@@ -1,0 +1,24 @@
+
+.page{
+    height: 100vh;
+    width: 100vw;
+}
+
+.admin-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-add {
+    color: var(--light-color);
+    background: var(--secondary-color);
+    border: var(--delete-icon-color) solid 1px;
+    margin: 0 0 1rem 0;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.7);
+  }

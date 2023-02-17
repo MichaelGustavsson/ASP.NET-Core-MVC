@@ -1,0 +1,26 @@
+@model westcoast_cars.web.ViewModels.FuelTypes.FuelTypePostViewModel
+<section class="page">
+
+    <h1 class="page-title">Lägg till ny bränsle typ</h1>
+
+    <form asp-action="Create" method="post">
+        <div class="form-control">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" type="text">
+            <span class="error" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-control">
+            <div class="buttons-container">
+                <button class="btn btn-dark">Spara</button>
+                <a asp-action="Index" asp-controller="Admin" class="btn btn-warning">Avbryt</a>
+            </div>
+        </div>
+    </form>
+
+    <section class="list">
+        @foreach (var fuelType in @Model.FuelTypes)
+        {
+            <div><span>@fuelType.Id</span>&nbsp;<span>@fuelType.Name</span></div>
+        }
+    </section>
+</section>

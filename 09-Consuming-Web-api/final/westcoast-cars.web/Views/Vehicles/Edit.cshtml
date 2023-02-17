@@ -1,0 +1,54 @@
+@model westcoast_cars.web.ViewModels.Vehicles.VehicleEditViewModel
+
+<section class="page">
+    <h1 class="page-title">Uppdatera bil</h1>
+    <form asp-action="Edit" method="post">
+        <input asp-for="Id" type="hidden">
+        <div class="form-control">
+            <label asp-for="Manufacturer"></label>
+            <select asp-for="Manufacturer" asp-items="Model.Manufacturers"></select>
+            <span class="error" asp-validation-for="Manufacturer"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="Model"></label>
+            <input asp-for="Model" type="text">
+            <span class="error" asp-validation-for="Model"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="ModelYear"></label>
+            <input asp-for="ModelYear" type="text">
+            <span class="error" asp-validation-for="ModelYear"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="FuelType"></label>
+            <select asp-for="FuelType" asp-items="Model.FuelTypes"></select>
+            <span class="error" asp-validation-for="FuelType"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="TransmissionsType"></label>
+            <select asp-for="TransmissionsType" asp-items="Model.TransmissionsTypes"></select>
+            <span class="error" asp-validation-for="FuelType"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="Mileage"></label>
+            <input asp-for="Mileage" type="text">
+            <span class="error" asp-validation-for="Mileage"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="Value"></label>
+            <input asp-for="Value" type="text">
+            <span class="error" asp-validation-for="Value"></span>
+        </div>
+        <div class="form-control">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description"></textarea>
+            <span class="error" asp-validation-for="Description"></span>
+        </div>
+        <div class="form-control">
+            <div class="buttons-container">
+                <button class="btn btn-dark">Spara</button>
+                <a asp-action="Index" class="btn btn-warning">Avbryt</a>
+            </div>
+        </div>
+    </form>
+</section>

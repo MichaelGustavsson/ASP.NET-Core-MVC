@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/colors.css">
+    <link rel="stylesheet" href="~/css/navigation.css">
+    <link rel="stylesheet" href="~/css/utilities.css">
+    <link rel="stylesheet" href="~/css/gallery-page.css">
+    @RenderSection("styles", false)
+    <link rel="stylesheet" href="~/css/vehicle-detail-page.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <script src="https://kit.fontawesome.com/55174c58a9.js" crossorigin="anonymous"></script>
+    <title>@ViewData["Title"] - Westcoast Cars</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo"><span class="text-primary"><i class="fa-solid fa-car"></i> Westcoast</span> Cars</h1>
+            <ul>
+                <li><a asp-action="Index" asp-controller="Home">Start</a></li>
+                <li><a asp-action="Index" asp-controller="Vehicles">Våra bilar</a></li>
+                <li><a href="#">Boka Service</a></li>
+                @* <li><a asp-action="Create" asp-controller="Vehicles"><i class="fa-solid fa-plus"></i></a></li> *@
+                <li><a asp-action="Index" asp-controller="Admin"><i class="fa-solid fa-plus"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+
+        @* <section>
+            @await Html.PartialAsync("_WeeklyOffer")
+            </section> *@
+    </main>
+</body>
+
+</html>

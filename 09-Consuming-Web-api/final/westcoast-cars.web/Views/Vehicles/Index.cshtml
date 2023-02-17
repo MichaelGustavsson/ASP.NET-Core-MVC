@@ -1,0 +1,23 @@
+@model IList<westcoast_cars.web.ViewModels.Vehicles.VehicleListViewModel>
+
+<section class="page">
+    <h1 class="page-title">Aktuella bilar för försäljning</h1>
+
+    <div class="gallery-wrapper">
+        @foreach (var vehicle in Model)
+        {
+            <div class="gallery-card">
+                <div>@vehicle.Name</div>
+                <img src="@vehicle.ImageUrl" alt="@vehicle.Model">
+                <div><span>@vehicle.Name</span>&nbsp;<span>@vehicle.ModelYear</span></div>
+                <div class="buttons-container">
+                    <a class="btn btn-dark" asp-action="details" asp-controller="vehicles" asp-route-id="@vehicle.Id">Se
+                        mer</a>
+                    <a class="btn btn-dark" asp-action="edit" asp-controller="vehicles" asp-route-id="@vehicle.Id">Ändra</a>
+                    <a class="btn btn-warning" asp-action="delete" asp-controller="vehicles"
+                    asp-route-id="@vehicle.Id">Såld</a>
+                </div>
+            </div>
+        }
+    </div>
+</section>

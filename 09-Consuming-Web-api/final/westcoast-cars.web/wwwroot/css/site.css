@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--primary-background-color);
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-color);
+}
+
+p {
+  margin: 1rem 0;
+}
+
+img {
+  width: 100%;
+}
+
+input {
+  padding: 0.6rem 0.2rem;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  width: 400px;  
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.6);
+}
+
+form label{
+  color: #333;
+  padding: 0.2rem 0;
+}
+
+input[type='text'],
+input[type='number'],
+textarea,
+select{
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  padding:0.4rem 0.4rem;
+  border: 1px solid #333;
+  outline: none;
+}
+.form-control{
+  margin: 0rem 0;
+}
+
+.form-control label{
+  display: block;
+}
+
+footer {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1.5rem;
+}
+
+.page-title {
+  text-align: center;
+  color: var(--secondary-color);
+  font-weight: 400;
+  font-size: 2rem;
+  padding: 2rem 0 3rem 0;
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 3rem;
+  border: solid  1px var(--dark-color);
+  width: 400px;
+  background: var(--light-color);
+  padding: 1rem 2rem;
+}
+
+.text-primary {
+  color: var(--primary-text-color);
+}
+
+.error{
+  color: var(--error-color);
+}
+
+.go-back {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--primary-text-color);
+  margin: 2rem 0;
+}
+
+/* Icons */
+.icons {
+  padding: 2rem;
+}
+
+.icons h3 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.icons i {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding: 1rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.content {
+  margin-bottom: 3rem;
+}
+
+.cars img:hover {
+  opacity: 0.7;
+}

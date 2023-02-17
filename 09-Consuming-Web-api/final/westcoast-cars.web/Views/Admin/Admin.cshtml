@@ -1,0 +1,15 @@
+@section styles{
+<link rel="stylesheet" href="~/css/admin-page.css">
+}
+
+<section class="page">
+
+    <h1 class="page-title">Administration</h1>
+
+    <div class="admin-container">
+        <a asp-action="Create" asp-controller="Vehicles" class="btn btn-add">Lägg till bil</a>
+        <a asp-action="Create" asp-controller="Manufacturer" class="btn btn-add">Lägg till tillverkare</a>
+        <a asp-action="Create" asp-controller="FuelTypes" class="btn btn-add">Lägg till Bränsle typ</a>
+        <a asp-action="Create" asp-controller="Transmissions" class="btn btn-add">Lägg till Transmissions typ</a>
+    </div>
+</section>

@@ -1,0 +1,25 @@
+@model westcoast_cars.web.ViewModels.Vehicles.VehicleDetailViewModel
+
+<article class="page">
+    <section class="vehicle-detail-container">
+        <div class="vehicle-detail">
+            <span class="back-icon">
+                <a asp-action="index"><span><i class="fa-regular fa-arrow-left-long"></i> Tillbaka</span></a>
+            </span>
+            <h2 class="vehicle-detail-header">@Model.Make - @Model.Model</h2>
+            <img src="@Model.ImageUrl" alt="@Model.Model">
+            <div class="vehicle-detail-info">
+                <span><strong>Modell</strong></span>
+                <span>@Model.Model</span>
+                <span><strong>Årsmodell</strong></span>
+                <span>@Model.ModelYear</span>
+                <span><strong>Km</strong></span>
+                <span>@Model.Mileage</span>
+                <span><strong>Pris</strong></span>
+                <span>@Model.Value</span>
+            </div>
+            <h4>Beskrivning</h4>
+            <div>@Model.Description</div>
+        </div>
+    </section>
+</article>
