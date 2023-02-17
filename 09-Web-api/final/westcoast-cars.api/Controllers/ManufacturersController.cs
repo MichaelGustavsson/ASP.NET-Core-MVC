@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using westcoast_cars.api.Data;
+using westcoast_cars.api.Entities;
+using westcoast_cars.api.ViewModels;
 
 namespace westcoast_cars.api.Controllers
 {
@@ -56,5 +58,33 @@ namespace westcoast_cars.api.Controllers
             return Ok(result);
         }
 
+        [HttpPost()]
+        public async Task<IActionResult> Add(PostViewModel model)
+        {
+            if (!ModelState.IsValid) return BadRequest("Information saknas!");
+
+            if (await _context.Manufacturers.SingleOrDefaultAsync(c => c.Name.ToUpper() == model.Name.ToUpper()) is not null)
+                return BadRequest($"Tillverkaren med namn {model.Name} finns redan i systemet");
+
+            var make = new Manufacturer
+            {
+                Name = model.Name
+            };
+
+            try
+            {
+                await _context.Manufacturers.AddAsync(make);
+
+                if (await _context.SaveChangesAsync() > 0)
+                {
+                    return CreatedAtAction(nameof(GetById), new { id = make.Id }, new { Id = make.Id, Name = make.Name });
+                }
+                return StatusCode(500, "Internal Server Error");
+            }
+            catch
+            {
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
     }
 }

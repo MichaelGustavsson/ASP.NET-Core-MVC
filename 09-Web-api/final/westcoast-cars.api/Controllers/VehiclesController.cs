@@ -82,8 +82,7 @@ namespace westcoast_cars.api.Controllers
         {
             if (!ModelState.IsValid)
             {
-                // return BadRequest("All information är inte med i anropet");
-                return ValidationProblem();
+                return BadRequest("All information är inte med i anropet");
             }
 
             if (await _context.Vehicles.SingleOrDefaultAsync(c => c.RegistrationNumber == vehicle.RegistrationNumber) is not null)
@@ -146,6 +145,83 @@ namespace westcoast_cars.api.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
 
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateVehicle(int id, VehicleUpdateViewModel model)
+        {
+            if (!ModelState.IsValid) return BadRequest("Felaktig information");
+
+            // Kontrollera så att bilen finns i systemet...
+            var vehicle = await _context.Vehicles.FindAsync(id);
+
+            if (vehicle is null) return BadRequest("Tyvärr vi kan inte hitta bilen som ska ändras");
+
+            // Hämta tillverkaren
+            var make = await _context.Manufacturers.SingleOrDefaultAsync(c => c.Name.ToUpper() == model.Make.ToUpper());
+            // Kontrollera att vi har den tillverkaren
+            if (make is null) return NotFound($"Tyvärr vi kunde inte hitta en tillverkare med namnet {model.Make}");
+
+            // Hämta bränsletyp
+            var fueltype = await _context.FuelTypes.SingleOrDefaultAsync(c => c.Name.ToUpper() == model.FuelType.ToUpper());
+            // Kontrollera att vi har den bränsletypen
+            if (fueltype is null) return NotFound($"Tyvärr vi kunde inte hitta en bränsletyp med namnet {model.FuelType}");
+
+            // Hämta växellåda
+            var transmission = await _context.TransmissionTypes.SingleOrDefaultAsync(c => c.Name.ToUpper() == model.Transmission.ToUpper());
+            // Kontrollera att vi har den växellådan
+            if (transmission is null) return NotFound($"Tyvärr vi kunde inte hitta en tillverkare med namnet {model.Transmission}");
+
+            vehicle.Model = model.Model;
+            vehicle.ModelYear = model.ModelYear;
+            vehicle.Manufacturer = make;
+            vehicle.FuelType = fueltype;
+            vehicle.TransmissionsType = transmission;
+            vehicle.Mileage = model.Mileage;
+            vehicle.Description = model.Description;
+            vehicle.Value = model.Value;
+            vehicle.IsSold = model.IsSold;
+            vehicle.ImageUrl = string.IsNullOrEmpty(model.ImageUrl) ? "no-car.png" : model.ImageUrl;
+
+            _context.Vehicles.Update(vehicle);
+
+            if (await _context.SaveChangesAsync() > 0)
+                return NoContent();
+
+            return StatusCode(500, "Internal Server Error");
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> MarkAsSold(int id)
+        {
+            var vehicle = await _context.Vehicles.FindAsync(id);
+
+            if (vehicle is null) return NotFound("Hittade inte bilen");
+
+            vehicle.IsSold = true;
+
+            _context.Vehicles.Update(vehicle);
+
+            if (await _context.SaveChangesAsync() > 0)
+                return NoContent();
+
+            return StatusCode(500, "Internal Server Error");
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+
+            var vehicle = await _context.Vehicles.FindAsync(id);
+
+            if (vehicle is null) return NotFound("Hittade inte bilen");
+
+            _context.Vehicles.Remove(vehicle);
+
+            if (await _context.SaveChangesAsync() > 0)
+                return NoContent();
+
+            return StatusCode(500, "Internal Server Error");
         }
     }
 }
